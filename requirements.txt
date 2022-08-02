@@ -1,0 +1,7 @@
+selenium
+pytest
+PyRECONSTRUCT
+Appium-Python-Client
+numpy
+theta
+setuptools

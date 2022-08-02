@@ -1,0 +1,120 @@
+from appium import webdriver
+from os import path
+from appium.webdriver.common.mobileby import MobileBy
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.actions.action_builder import ActionBuilder
+from selenium.webdriver.common.actions.interaction import POINTER_TOUCH
+from selenium.webdriver.common.actions.mouse_button import MouseButton
+
+CUR_DIR = path.dirname(path.abspath(__file__))
+APP = path.join(CUR_DIR, 'ApiDemos.apk')
+APPIUM = 'http://localhost:4723' # Swap to this to run in local
+# When running locally
+CAPS = {
+    'platform': 'Android',
+    'deviceName': 'pixel_4',
+    'automationName': 'UiAutomator2',
+    'app': APP,
+}
+driver = webdriver.Remote(
+    command_executor=APPIUM,
+    desired_capabilities=CAPS
+)
+
+# caps = {
+#     'platformName': 'Android',
+#     'automationName': 'UiAutomator2',
+#     'appPackage': 'io.appium.android.apis',
+#     'appActivity': '.ApiDemos',
+#     'deviceName': '<device name from automation config>',
+#     'udid': '<udid from automation config>',
+#     'headspin:capture': True,
+# }
+
+# driver = webdriver.Remote(
+#     command_executor='https://dev-us-pao-0.headspin.io:7045/v0/417be4d97e4c4fb6935b66a3d4b81b85/wd/hub',
+#     desired_capabilities=caps # CAPS # Swap for APPIUM when in local
+# )
+#
+wait = WebDriverWait(driver, 5)
+
+# Launch the ApiDemos application
+
+# Navigate to the 'Graphics' view.
+def select_graphics():
+    """Pressing the graphics selection in the APIDemos android app"""
+    try:
+        goto_graphics = wait.until(EC.presence_of_element_located(MobileBy.ACCESSIBILITY_ID, 'Graphics').click()
+        assert graphics_was_pressed!, "Couldn't find graphics selection using the 'select_graphics' function!"##########
+
+
+# Find and navigate to the 'FingerPaint' view. If the 'FingerPaint' list item
+  # is not visible, the script should scroll to make it visible using a Touch
+  # Action so that it can be tapped.
+def find_select_finger_paint():
+    """swipe down to find then select Finger Paint"""
+    scroll = ActionBuilder(driver)
+    finger = scroll.add_pointer_input(POINTER_TOUCH, "finger")
+    finger.create_pointer_move(duration=0, x=100, y=500) # check points with appium desktop
+    # use the get_window_rect() to find out the size of the screen you're working on!
+    finger.create_pointer_down(MouseButton.LEFT)
+    finger.create_pointer_move(duration=250, x=0, y=-500, origin="pointer") # check points with appium desktop
+    finger.create_pointer_up(MouseButton.LEFT)
+    scroll.perform()
+    swipe_down = ############
+    try:
+        goto_finger_paint = wait.until(EC.presence_of_element_located(MobileBy.ACCESSIBILITY_ID, 'FingerPPaint').click()
+        assert
+#  On the FingerPaint view, draw a circle that has a radius of 40% of the
+  # smallest screen dimension (so 40% of the width in portrait mode)
+
+# The circle should be centered on the screen
+find_centre = MobileBy.display.get_window_rect()
+
+        def get_point_on_circle(step, itotal, origin, radius):
+            """Lets make the points for the circle!!!"""
+            step = int(step)
+            itotal_steps = int()
+            original = point
+            raduis = double()
+
+            double_theta = 2 * Math.PI * (step / itotal_steps)
+            x = int()
+            math.floor(math.cos(theta) * radius);
+            y = int()
+            math.floor(math.sin(theta) * radius);
+            new_point = (origin.x + x, origin.y + y)
+            return new_point
+
+        def draw_circle(driver, origin, radius, steps):
+            """draw the circle using the points"""
+            driver = driver
+            origin = origin
+            radius = double()
+            steps = int()
+            first_point = get_point_on_circle(0, steps, origin, radius)
+
+            PointerInput
+            finger = new
+            PointerInput(Kind.TOUCH, "finger");
+            Sequence
+            circle = new
+            Sequence(finger, 0);
+            circle.addAction(finger.createPointerMove(NO_TIME, VIEW, firstPoint.x, firstPoint.y));
+            circle.addAction(finger.createPointerDown(MouseButton.LEFT.asArg()));
+
+            for (int i = 1; i < steps + 1; i++):
+                Point
+                point = getPointOnCircle(i, steps, origin, radius);
+                circle.addAction(finger.createPointerMove(STEP_DURATION, VIEW, point.x, point.y))
+
+            circle.addAction(finger.createPointerUp(MouseButton.LEFT.asArg()));
+            driver.perform(Arrays.asList(circle))
+#  Draw a line that cuts the circle in half, and whose length is the diameter
+  # of the circle
+Find the highest and lowest point of the circle, draw a line using these points
+#  Draw another line that cuts the circle in half, but in the opposite axis
+Find the Leftmost point and and the rightmost point of the circle, draw a line using these points
+#  Save a screenshot of your masterpiece
+use android screen shot to get a pic, there's nothing in the app!!
